@@ -90,3 +90,4 @@ echo "--------------------------------------"
 rm /tmp/serverlist.txt
 rm /tmp/iplatency.txt
 rm /tmp/finaltest.txt
+rm /tmp/pingtest.sh
