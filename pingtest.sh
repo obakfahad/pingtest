@@ -75,14 +75,20 @@ for word in $onlylatency; do
     match2=$(grep "$word" /tmp/iplatency.txt | awk '{print $2}')
     match3=$(grep "$match1" /tmp/serverlist.txt)
     echo The Latency of $match3 is "$match2"ms.
-    echo -e "\n"
 done > /tmp/finaltest.txt
 
 echo "--------------------------------------"
 echo "Sorting the Servers by best latency."
 echo "--------------------------------------"
 cat /tmp/finaltest.txt
+echo -e "\n"
 echo "--------------------------------------"
+
+tophost=$(cat /tmp/finaltest.txt | sed -n "1p" | awk '{print $5}')
+toplatency=$(cat /tmp/finaltest.txt | sed -n "1p" | awk '{print $7}')
+
+echo The best latency from "$tophost" is "$toplatency"
+
 echo "Thank You."
 echo "--------------------------------------"
 # Deleting Junks
